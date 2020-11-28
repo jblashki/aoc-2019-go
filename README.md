@@ -21,8 +21,18 @@ $ go run day1
 ```
 
 # [Day 2](https://adventofcode.com/2019/day/2)
+To run Day 2, simply:
+```
+$ cd day2
+$ go build
+$ ./day2
+```
+**or**
 
-_**[TBD]**_
+```
+$ cd day2
+$ go run day2
+```
 
 # [Day 3](https://adventofcode.com/2019/day/3)
 

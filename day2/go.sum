@@ -1,0 +1,4 @@
+github.com/jblashki/aoc-filereader-go v1.0.0 h1:0AmL7DLyeMVcAPh690vUhzXdEtwRiNyBdnikqnlvEtA=
+github.com/jblashki/aoc-filereader-go v1.0.0/go.mod h1:pwn8ObLdl9SkixDnZZ0lBFfRlnx925zZxQmmgcW6aro=
+github.com/jblashki/aoc-intcode-go v1.0.1 h1:/iH0nBTM9BUfSv7oi7URDsHEtJ3gakBockzGEaFF8R8=
+github.com/jblashki/aoc-intcode-go v1.0.1/go.mod h1:4lba/E1JKaHx+lOJgZ+B3D3mOmHQKk2rPw49ruUNQt0=
