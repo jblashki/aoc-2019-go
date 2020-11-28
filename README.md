@@ -7,8 +7,18 @@ Main source code for Advent of Code solutions for [2019](https://adventofcode.co
 Each day is separated into it's own Go program.
 
 # [Day 1](https://adventofcode.com/2019/day/1)
+To run Day 1, simply:
+```
+$ cd day1
+$ go build
+$ ./day1
+```
+**or**
 
-_**[TBD]**_
+```
+$ cd day1
+$ go run day1
+```
 
 # [Day 2](https://adventofcode.com/2019/day/2)
 
