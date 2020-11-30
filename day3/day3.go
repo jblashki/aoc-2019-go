@@ -19,7 +19,7 @@ func RunDay(verbose bool) {
 	var err error
 
 	if verbose {
-		fmt.Printf("%v Output:\n", name)
+		fmt.Printf("\n%v Output:\n", name)
 	}
 	aDist, aPoint, bSteps, bPoint, err = run(verbose)
 	if err != nil {
