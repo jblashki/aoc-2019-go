@@ -1,4 +1,4 @@
-package main
+package day5
 
 import (
 	"fmt"
@@ -6,26 +6,28 @@ import (
 	"github.com/jblashki/aoc-intcode-go"
 )
 
-const INPUT_FILE = "./program"
+const name = "Day 5"
+const INPUT_FILE = "./day5/program"
 
-func main() {
+func RunDay(verbose bool) {
 	var err error
 
-	fmt.Printf("AoC 2019 Day 5 (GO)\n")
-	fmt.Printf("-------------------\n")
-	fmt.Printf("5a: (Enter 1 below)\n")
-	err = runProgram()
-	if err != nil {
-		fmt.Printf("5a: **** Error: %q ****\n", err)
-	} else {
-		fmt.Printf("5a: See Debug Above\n")
+	if verbose {
+		fmt.Printf("\n%v Output:\n", name)
 	}
-	fmt.Printf("5b: (Enter 5 below)\n")
+	fmt.Printf("%va: (Enter 1 below)\n", name)
 	err = runProgram()
 	if err != nil {
-		fmt.Printf("5b: **** Error: %q ****\n", err)
+		fmt.Printf("%va: **** Error: %q ****\n", name, err)
 	} else {
-		fmt.Printf("5b: See Debug Above\n")
+		fmt.Printf("%va: See Debug Above\n", name)
+	}
+	fmt.Printf("%vb: (Enter 5 below)\n", name)
+	err = runProgram()
+	if err != nil {
+		fmt.Printf("%vb: **** Error: %q ****\n", name, err)
+	} else {
+		fmt.Printf("%vb: See Debug Above\n", name)
 	}
 }
 

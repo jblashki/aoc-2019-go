@@ -1,4 +1,4 @@
-package main
+package day6
 
 import (
 	"errors"
@@ -8,35 +8,40 @@ import (
 	"github.com/jblashki/aoc-filereader-go"
 )
 
-const INPUT_PATH = "./orbits"
+const name = "Day 6"
+const INPUT_PATH = "./day6/orbits"
 
 type planet struct {
 	name  string
 	orbit *planet
 }
 
-func main() {
-	var day6aResult int
-	var day6bResult int
+
+func RunDay(verbose bool) {
+	var aResult int
+	var bResult int
 	var err error
 
-	fmt.Printf("AoC 2019 Day 6 (GO)\n")
-	fmt.Printf("-------------------\n")
-	day6aResult, err = day6a()
-	if err != nil {
-		fmt.Printf("6a: **** Error: %v ****\n", err)
-	} else {
-		fmt.Printf("6a: Total Orbits = %v\n", day6aResult)
+	if verbose {
+		fmt.Printf("\n%v Output:\n", name)
 	}
-	day6bResult, err = day6b()
+
+	aResult, err = a()
 	if err != nil {
-		fmt.Printf("6b: **** Error: %v ****\n", err)
+		fmt.Printf("%va: **** Error: %q ****\n", name, err)
 	} else {
-		fmt.Printf("6b: Orbital Steps Required = %v\n", day6bResult)
+		fmt.Printf("%va: Total Orbits = %v\n", name, aResult)
+	}
+
+	bResult, err = b()
+	if err != nil {
+		fmt.Printf("%vb: **** Error: %q ****\n", name, err)
+	} else {
+		fmt.Printf("%vb: Orbital Steps Required = %v\n", name, bResult)
 	}
 }
 
-func day6a() (int, error) {
+func a() (int, error) {
 	var planetMap = make(map[string]*planet)
 
 	inputs, err := filereader.ReadLines(INPUT_PATH)
@@ -68,7 +73,7 @@ func day6a() (int, error) {
 	return directOrbits + indirectOrbits, nil
 }
 
-func day6b() (int, error) {
+func b() (int, error) {
 	var planetMap = make(map[string]*planet)
 
 	inputs, err := filereader.ReadLines(INPUT_PATH)

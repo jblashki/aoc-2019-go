@@ -1,34 +1,36 @@
-package main
+package day3
 
 import (
 	"errors"
 	"fmt"
 
-	"day3/wirell"
+	"aoc2019/day3/wirell"
 	"github.com/jblashki/aoc-filereader-go"
 )
 
-const INPUT_FILE = "./wire_map"
+const name = "Day 3"
+const INPUT_FILE = "./day3/wire_map"
 
-func main() {
-	var day3aDist int
-	var day3aPoint wirell.WirePos
-	var day3bSteps int
-	var day3bPoint wirell.WirePos
+func RunDay(verbose bool) {
+	var aDist int
+	var aPoint wirell.WirePos
+	var bSteps int
+	var bPoint wirell.WirePos
 	var err error
 
-	fmt.Printf("AoC 2019 Day 3 (GO)\n")
-	fmt.Printf("-------------------\n")
-	day3aDist, day3aPoint, day3bSteps, day3bPoint, err = day3()
+	if verbose {
+		fmt.Printf("%v Output:\n", name)
+	}
+	aDist, aPoint, bSteps, bPoint, err = run(verbose)
 	if err != nil {
-		fmt.Printf("3a: **** Error: %q ****\n", err)
+		fmt.Printf("%va: **** Error: %q ****\n", name, err)
+		fmt.Printf("%vb: **** Error: %q ****\n", name, err)
 	} else {
-		fmt.Printf("3a: Closest crossover = %v @ %v\n", day3aDist, day3aPoint)
-		fmt.Printf("3b: Least Steps       = %v @ %v\n", day3bSteps, day3bPoint)
+		fmt.Printf("%va: Closest crossover = %v @ %v\n", name, aDist, aPoint)
+		fmt.Printf("%vb: Least Steps       = %v @ %v\n", name, bSteps, bPoint)
 	}
 }
-
-func day3() (int, wirell.WirePos, int, wirell.WirePos, error) {
+func run(verbose bool) (int, wirell.WirePos, int, wirell.WirePos, error) {
 	ll1, err := wirell.CreateWireLL()
 	if err != nil {
 		errormsg := fmt.Sprintf("Failed to create Wire1 linked list: %q", err)
@@ -49,7 +51,9 @@ func day3() (int, wirell.WirePos, int, wirell.WirePos, error) {
 	wire1 := wires[0]
 	wire2 := wires[1]
 
-	fmt.Printf("Loading Wire1...")
+	if verbose {
+		fmt.Printf("Loading Wire1...")
+	}
 	for i := 0; i < len(wire1); i++ {
 		move, err := wirell.ParseMove(wire1[i])
 		if err != nil {
@@ -63,9 +67,10 @@ func day3() (int, wirell.WirePos, int, wirell.WirePos, error) {
 			return 0, wirell.WirePos{0, 0}, 0, wirell.WirePos{0, 0}, errors.New(errormsg)
 		}
 	}
-	fmt.Printf("DONE\n")
-
-	fmt.Printf("Loading Wire2...")
+	if verbose {
+		fmt.Printf("DONE\n")
+		fmt.Printf("Loading Wire2...")
+	}
 	for i := 0; i < len(wire2); i++ {
 		move, err := wirell.ParseMove(wire2[i])
 		if err != nil {
@@ -78,11 +83,17 @@ func day3() (int, wirell.WirePos, int, wirell.WirePos, error) {
 			return 0, wirell.WirePos{0, 0}, 0, wirell.WirePos{0, 0}, errors.New(errormsg)
 		}
 	}
-	fmt.Printf("DONE\n")
+	if verbose {
+		fmt.Printf("DONE\n")
+	}
 
-	fmt.Printf("Finding intersections...")
+	if verbose {
+		fmt.Printf("Finding intersections...")
+	}
 	intersections := wirell.FindCrossovers(ll1, ll2)
-	fmt.Printf("DONE\n")
+	if verbose {
+		fmt.Printf("DONE\n")
+	}
 
 	minDistance := -1
 	minPoint := wirell.WirePos{-1, -1}

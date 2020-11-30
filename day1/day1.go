@@ -1,4 +1,4 @@
-package main
+package day1
 
 import (
 	"fmt"
@@ -6,30 +6,33 @@ import (
 	"github.com/jblashki/aoc-filereader-go"
 )
 
-const INPUT_FILE = "./mass"
+const name = "Day 1"
+const INPUT_FILE = "./day1/mass"
 
-func main() {
-	var day1aResult int
-	var day1bResult int
+func RunDay(verbose bool) {
+	var aResult int
+	var bResult int
 	var err error
 
-	fmt.Printf("AoC 2019 Day 1 (GO)\n")
-	fmt.Printf("-------------------\n")
-	day1aResult, err = day1a()
-	if err != nil {
-		fmt.Printf("1a: **** Error: %q ****\n", err)
-	} else {
-		fmt.Printf("1a: Fuel = %v\n", day1aResult)
+	if verbose {
+		fmt.Printf("\n%v Output:\n", name)
 	}
-	day1bResult, err = day1b()
+
+	aResult, err = a()
 	if err != nil {
-		fmt.Printf("1b: **** Error: %q ****\n", err)
+		fmt.Printf("%va: **** Error: %q ****\n", name, err)
 	} else {
-		fmt.Printf("1b: Fuel = %v\n", day1bResult)
+		fmt.Printf("%va: Fuel = %v\n", name, aResult)
+	}
+	bResult, err = b()
+	if err != nil {
+		fmt.Printf("%vb: **** Error: %q ****\n", name, err)
+	} else {
+		fmt.Printf("%vb: Fuel = %v\n", name, bResult)
 	}
 }
 
-func day1a() (int, error) {
+func a() (int, error) {
 
 	mass, err := filereader.ReadAllInts(INPUT_FILE)
 	if err != nil {
@@ -43,7 +46,7 @@ func day1a() (int, error) {
 	return fuel_req, nil
 }
 
-func day1b() (int, error) {
+func b() (int, error) {
 	mass, err := filereader.ReadAllInts(INPUT_FILE)
 	if err != nil {
 		return 0, err

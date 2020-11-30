@@ -1,51 +1,56 @@
-package main
+package day4
 
 import (
 	"fmt"
 )
 
-func main() {
-	var day4aResult int
-	var day4bResult int
+const name = "Day 4"
+
+func RunDay(verbose bool) {
+	var aResult int
+	var bResult int
 	var err error
 
-	fmt.Printf("AoC 2019 Day 4 (GO)\n")
-	fmt.Printf("-------------------\n")
-	day4aResult, err = day4a()
-	if err != nil {
-		fmt.Printf("4a: **** Error: %q ****\n", err)
-	} else {
-		fmt.Printf("4a: %v passwords match in range\n", day4aResult)
+	if verbose {
+		fmt.Printf("\n%v Output:\n", name)
 	}
-	day4bResult, err = day4b()
+
+	aResult, err = a()
 	if err != nil {
-		fmt.Printf("4b: **** Error: %q ****\n", err)
+		fmt.Printf("%va: **** Error: %q ****\n", name, err)
 	} else {
-		fmt.Printf("4b: %v passwords match in range\n", day4bResult)
+		fmt.Printf("%va: %v passwords match in range\n", name, aResult)
+	}
+
+	bResult, err = b()
+	if err != nil {
+		fmt.Printf("%vb: **** Error: %q ****\n", name, err)
+	} else {
+		fmt.Printf("%vb: %v passwords match in range\n", name, bResult)
 	}
 }
 
-func day4a() (int, error) {
+func a() (int, error) {
 	count := 0
 	for i := 123257; i <= 647015; i++ {
-		if day4aMatch(i) {
+		if aMatch(i) {
 			count++
 		}
 	}
 	return count, nil
 }
 
-func day4b() (int, error) {
+func b() (int, error) {
 	count := 0
 	for i := 123257; i <= 647015; i++ {
-		if day4bMatch(i) {
+		if bMatch(i) {
 			count++
 		}
 	}
 	return count, nil
 }
 
-func day4aMatch(num int) bool {
+func aMatch(num int) bool {
 	pair := false
 	lastDigit := -1
 	for num > 0 {
@@ -65,7 +70,7 @@ func day4aMatch(num int) bool {
 	return pair
 }
 
-func day4bMatch(num int) bool {
+func bMatch(num int) bool {
 	lastDigit := -1
 	runCount := 1
 	pair := false
