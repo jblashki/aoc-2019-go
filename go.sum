@@ -7,3 +7,7 @@ github.com/jblashki/aoc-intcode-go/v2 v2.0.0-alpha.1 h1:I7OiHt+A5OmrspUI4c91ZwPb
 github.com/jblashki/aoc-intcode-go/v2 v2.0.0-alpha.1/go.mod h1:feYDuEeOrdflqaiuavdjEg8+Ea4L7qn1cOC2nXqgCfs=
 github.com/jblashki/aoc-intcode-go/v2 v2.0.0 h1:A3T1ROtc4FtS8z2OXoCVdsDckb4Nm10Zg2KcJwipiV8=
 github.com/jblashki/aoc-intcode-go/v2 v2.0.0/go.mod h1:feYDuEeOrdflqaiuavdjEg8+Ea4L7qn1cOC2nXqgCfs=
+github.com/jblashki/aoc-intcode-go/v3 v3.0.0-alpha.1 h1:/URIzdDPWBgnMtVCLZV8HtzwvnbyzWVi+LncIlB2CAg=
+github.com/jblashki/aoc-intcode-go/v3 v3.0.0-alpha.1/go.mod h1:Iw44277DsWhYLFYFfICWE6woi8Gmj66FwU/gtduYZpc=
+github.com/jblashki/aoc-intcode-go/v3 v3.0.0 h1:gOkrrVnXnCQNgKf8VYlwEbhhAT6DUYgY0ILOrcOVjcU=
+github.com/jblashki/aoc-intcode-go/v3 v3.0.0/go.mod h1:Iw44277DsWhYLFYFfICWE6woi8Gmj66FwU/gtduYZpc=
