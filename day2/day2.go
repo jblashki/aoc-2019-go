@@ -4,13 +4,14 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/jblashki/aoc-intcode-go"
+	intcode "github.com/jblashki/aoc-intcode-go"
 )
 
 const name = "Day 2"
-const INPUT_FILE = "./day2/program"
-const DAY2B_EXPECTED_OUTPUT = 19690720
+const inputFile = "./day2/program"
+const expected2BOutput = 19690720
 
+// RunDay runs Advent of Code Day 2 Puzzle
 func RunDay(verbose bool) {
 	var aResult int
 	var bResult int
@@ -38,7 +39,7 @@ func RunDay(verbose bool) {
 func a() (int, error) {
 	ic := intcode.Create()
 
-	err := intcode.Load(ic, INPUT_FILE)
+	err := intcode.Load(ic, inputFile)
 	if err != nil {
 		return 0, err
 	}
@@ -62,7 +63,7 @@ func a() (int, error) {
 func b() (int, error) {
 	icOrig := intcode.Create()
 
-	err := intcode.Load(icOrig, INPUT_FILE)
+	err := intcode.Load(icOrig, inputFile)
 	if err != nil {
 		return 0, err
 	}
@@ -87,12 +88,12 @@ func b() (int, error) {
 				return 0, err
 			}
 
-			if value == DAY2B_EXPECTED_OUTPUT {
+			if value == expected2BOutput {
 				return (100 * noun) + verb, nil
 			}
 		}
 	}
 
-	errormsg := fmt.Sprintf("Unable to find value %v", DAY2B_EXPECTED_OUTPUT)
+	errormsg := fmt.Sprintf("Unable to find value %v", expected2BOutput)
 	return 0, errors.New(errormsg)
 }

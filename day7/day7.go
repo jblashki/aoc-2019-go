@@ -4,12 +4,13 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/jblashki/aoc-intcode-go/v2"
+	intcode "github.com/jblashki/aoc-intcode-go/v2"
 )
 
 const name = "Day 7"
-const INPUT_FILE = "./day7/program"
+const inputFile = "./day7/program"
 
+// RunDay runs Advent of Code Day 7 Puzzle
 func RunDay(verbose bool) {
 	var maxSignalA int
 	var maxSignalSeqA []int
@@ -39,7 +40,7 @@ func RunDay(verbose bool) {
 func a() (int, []int, error) {
 	ic := intcode.Create()
 
-	err := intcode.Load(ic, INPUT_FILE)
+	err := intcode.Load(ic, inputFile)
 	if err != nil {
 		return 0, nil, err
 	}
@@ -66,7 +67,7 @@ func a() (int, []int, error) {
 func b() (int, []int, error) {
 	ic := intcode.Create()
 
-	err := intcode.Load(ic, INPUT_FILE)
+	err := intcode.Load(ic, inputFile)
 	if err != nil {
 		return 0, nil, err
 	}
@@ -174,8 +175,6 @@ func amplifierOutput(ic *intcode.IntCode, phaseSetting []int) (int, error) {
 		chanEIn <- output
 		output = <-chanEOut
 	}
-
-	return output, nil
 }
 
 func generatePermutations(input []int) [][]int {
@@ -204,7 +203,7 @@ func generatePermutations(input []int) [][]int {
 			newA[i] = tmp
 			returnPerms = append(returnPerms, newA)
 			a = newA
-			p[i] += 1
+			p[i]++
 			i = 1
 		} else {
 			p[i] = 0

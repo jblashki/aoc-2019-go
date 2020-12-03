@@ -5,12 +5,14 @@ import (
 	"fmt"
 
 	"aoc2019/day3/wirell"
-	"github.com/jblashki/aoc-filereader-go"
+
+	filereader "github.com/jblashki/aoc-filereader-go"
 )
 
 const name = "Day 3"
-const INPUT_FILE = "./day3/wire_map"
+const inputFile = "./day3/wire_map"
 
+// RunDay runs Advent of Code Day 3 Puzzle
 func RunDay(verbose bool) {
 	var aDist int
 	var aPoint wirell.WirePos
@@ -43,7 +45,7 @@ func run(verbose bool) (int, wirell.WirePos, int, wirell.WirePos, error) {
 		return 0, wirell.WirePos{0, 0}, 0, wirell.WirePos{0, 0}, errors.New(errormsg)
 	}
 
-	wires, err := filereader.ReadCSVStringsPerLine(INPUT_FILE)
+	wires, err := filereader.ReadCSVStringsPerLine(inputFile)
 	if err != nil {
 		return 0, wirell.WirePos{0, 0}, 0, wirell.WirePos{0, 0}, err
 	}

@@ -7,6 +7,7 @@ import (
 
 const name = "Day 13"
 
+// RunDay runs Advent of Code Day 13 Puzzle
 func RunDay(verbose bool) {
 	var aResult int
 	var bResult int

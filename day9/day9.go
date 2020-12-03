@@ -5,13 +5,14 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/jblashki/aoc-intcode-go/v3"
+	intcode "github.com/jblashki/aoc-intcode-go/v3"
 )
 
 const name = "Day 9"
 
-const input_file = "./day9/program"
+const inputFile = "./day9/program"
 
+// RunDay runs Advent of Code Day 9 Puzzle
 func RunDay(verbose bool) {
 	var aResult int
 	var bResult int
@@ -49,7 +50,7 @@ func b(verbose bool) (int, error) {
 func boost(input int, verbose bool) (int, error) {
 	ic := intcode.Create()
 
-	err := intcode.Load(ic, input_file)
+	err := intcode.Load(ic, inputFile)
 	if err != nil {
 		return 0, err
 	}

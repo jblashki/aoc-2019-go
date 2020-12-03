@@ -3,15 +3,16 @@ package day8
 import (
 	"fmt"
 
-	"github.com/jblashki/aoc-filereader-go"
+	filereader "github.com/jblashki/aoc-filereader-go"
 )
 
 const name = "Day 8"
-const input_file = "./day8/image"
+const inputFile = "./day8/image"
 
 const imageWidth = 25
 const imageHeight = 6
 
+// RunDay runs Advent of Code Day 8 Puzzle
 func RunDay(verbose bool) {
 	var aResult int
 	var err error
@@ -36,7 +37,7 @@ func RunDay(verbose bool) {
 }
 
 func a() (int, error) {
-	image, err := readImage(input_file, imageWidth, imageHeight)
+	image, err := readImage(inputFile, imageWidth, imageHeight)
 	if err != nil {
 		return 0, err
 	}
@@ -47,7 +48,7 @@ func a() (int, error) {
 		count := make([]int, 10)
 		for j := 0; j < len(image[i]); j++ {
 			for k := 0; k < len(image[i][j]); k++ {
-				count[image[i][j][k]] += 1
+				count[image[i][j][k]]++
 			}
 			// End of Row
 		}
@@ -61,7 +62,7 @@ func a() (int, error) {
 }
 
 func b() error {
-	image, err := readImage(input_file, imageWidth, imageHeight)
+	image, err := readImage(inputFile, imageWidth, imageHeight)
 	if err != nil {
 		return err
 	}

@@ -5,18 +5,18 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/jblashki/aoc-filereader-go"
+	filereader "github.com/jblashki/aoc-filereader-go"
 )
 
 const name = "Day 6"
-const INPUT_PATH = "./day6/orbits"
+const inputFile = "./day6/orbits"
 
 type planet struct {
 	name  string
 	orbit *planet
 }
 
-
+// RunDay runs Advent of Code Day 6 Puzzle
 func RunDay(verbose bool) {
 	var aResult int
 	var bResult int
@@ -44,7 +44,7 @@ func RunDay(verbose bool) {
 func a() (int, error) {
 	var planetMap = make(map[string]*planet)
 
-	inputs, err := filereader.ReadLines(INPUT_PATH)
+	inputs, err := filereader.ReadLines(inputFile)
 	if err != nil {
 		return 0, err
 	}
@@ -76,7 +76,7 @@ func a() (int, error) {
 func b() (int, error) {
 	var planetMap = make(map[string]*planet)
 
-	inputs, err := filereader.ReadLines(INPUT_PATH)
+	inputs, err := filereader.ReadLines(inputFile)
 	if err != nil {
 		return 0, err
 	}
@@ -155,10 +155,10 @@ func addOrbit(planetMap map[string]*planet, planetName string, orbitName string)
 func countOrbits(p *planet) (direct int, indirect int) {
 	if p.orbit == nil {
 		return
-	} else {
-		direct = 1
-		indirect = -1
 	}
+
+	direct = 1
+	indirect = -1
 
 	for nextP := p.orbit; nextP != nil; nextP = nextP.orbit {
 		indirect++

@@ -7,39 +7,48 @@ import (
 	"strings"
 )
 
+// Direction is an enumeration describing the directions WireUp, WireDown WireLeft and WireRight
 type Direction int
 
 const (
-	UP = iota
-	DOWN
-	LEFT
-	RIGHT
+	// WireUp is the direction up in the WireLL
+	WireUp = iota
+	// WireDown is the direction down in the WireLL
+	WireDown
+	// WireLeft is the direction left in the WireLL
+	WireLeft
+	// WireRight is the direction right in the WireLL
+	WireRight
 )
 
+// WirePos Struct for x,y position of wire
 type WirePos struct {
 	XPos int
 	YPos int
 }
 
+// Move is a struct to define a wire move used in WireLL linked list
 type Move struct {
 	Dir  Direction
 	Dist int
 }
 
-type WireNode struct {
+type wireNode struct {
 	pos  WirePos
-	next *WireNode
+	next *wireNode
 }
 
+// WireLL Linked-list for wire path
 type WireLL struct {
-	root *WireNode
-	tail *WireNode
+	root *wireNode
+	tail *wireNode
 }
 
+// CreateWireLL Creates a new WireLL linked list
 func CreateWireLL() (*WireLL, error) {
 	retValue := new(WireLL)
 
-	initNode := new(WireNode)
+	initNode := new(wireNode)
 	initNode.pos.XPos = 0
 	initNode.pos.YPos = 0
 	initNode.next = nil
@@ -49,23 +58,24 @@ func CreateWireLL() (*WireLL, error) {
 	return retValue, nil
 }
 
+// AddNode Adds new node to WireLL with direction dir
 func AddNode(ll *WireLL, dir Direction) error {
-	newNode := new(WireNode)
+	newNode := new(wireNode)
 
 	newNode.pos.XPos = ll.tail.pos.XPos
 	newNode.pos.YPos = ll.tail.pos.YPos
 
 	switch dir {
-	case UP:
+	case WireUp:
 		newNode.pos.YPos++
 
-	case DOWN:
+	case WireDown:
 		newNode.pos.YPos--
 
-	case LEFT:
+	case WireLeft:
 		newNode.pos.XPos--
 
-	case RIGHT:
+	case WireRight:
 		newNode.pos.XPos++
 	}
 
@@ -77,6 +87,7 @@ func AddNode(ll *WireLL, dir Direction) error {
 	return nil
 }
 
+// AddMove will add a series of nodes to the WireLL based on Move
 func AddMove(ll *WireLL, m Move) error {
 	for i := 0; i < m.Dist; i++ {
 		err := AddNode(ll, m.Dir)
@@ -88,6 +99,7 @@ func AddMove(ll *WireLL, m Move) error {
 	return nil
 }
 
+// FindStepsToPos returns the number of steps along a wire to a given x,y position
 func FindStepsToPos(ll *WireLL, p WirePos) (int, error) {
 	for node, count := ll.root, 0; node != nil; node, count = node.next, count+1 {
 		if node.pos.XPos == p.XPos && node.pos.YPos == p.YPos {
@@ -95,10 +107,11 @@ func FindStepsToPos(ll *WireLL, p WirePos) (int, error) {
 		}
 	}
 
-	errormsg := fmt.Sprintf("Pos %v not found in %ll", p, ll)
+	errormsg := fmt.Sprintf("Pos %v not found in %v", p, ll)
 	return 0, errors.New(errormsg)
 }
 
+// FindCrossovers returns a slice of WirePos for every postion where ll1 and ll2 cross over
 func FindCrossovers(ll1 *WireLL, ll2 *WireLL) []WirePos {
 	returnWirePos := make([]WirePos, 0)
 
@@ -116,8 +129,9 @@ func FindCrossovers(ll1 *WireLL, ll2 *WireLL) []WirePos {
 	return returnWirePos
 }
 
+// ParseMove converts a string in the format 'U12' to a Move variable
 func ParseMove(s string) (Move, error) {
-	m := Move{UP, 0}
+	m := Move{WireUp, 0}
 	if s == "" {
 		errormsg := fmt.Sprintf("Parsing error. Invalid value %q", s)
 		return m, errors.New(errormsg)
@@ -127,22 +141,22 @@ func ParseMove(s string) (Move, error) {
 	case 'u':
 		fallthrough
 	case 'U':
-		m.Dir = UP
+		m.Dir = WireUp
 
 	case 'd':
 		fallthrough
 	case 'D':
-		m.Dir = DOWN
+		m.Dir = WireDown
 
 	case 'l':
 		fallthrough
 	case 'L':
-		m.Dir = LEFT
+		m.Dir = WireLeft
 
 	case 'r':
 		fallthrough
 	case 'R':
-		m.Dir = RIGHT
+		m.Dir = WireRight
 
 	default:
 		errormsg := fmt.Sprintf("Invalid direction '%c' in %q", s[0], s)

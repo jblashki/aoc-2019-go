@@ -3,12 +3,13 @@ package day5
 import (
 	"fmt"
 
-	"github.com/jblashki/aoc-intcode-go"
+	intcode "github.com/jblashki/aoc-intcode-go"
 )
 
 const name = "Day 5"
-const INPUT_FILE = "./day5/program"
+const inputFile = "./day5/program"
 
+// RunDay runs Advent of Code Day 5 Puzzle
 func RunDay(verbose bool) {
 	var err error
 
@@ -34,7 +35,7 @@ func RunDay(verbose bool) {
 func runProgram() error {
 	ic := intcode.Create()
 
-	err := intcode.Load(ic, INPUT_FILE)
+	err := intcode.Load(ic, inputFile)
 	if err != nil {
 		return err
 	}
