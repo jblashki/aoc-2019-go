@@ -36,18 +36,18 @@ func run(verbose bool) (int, wirell.WirePos, int, wirell.WirePos, error) {
 	ll1, err := wirell.CreateWireLL()
 	if err != nil {
 		errormsg := fmt.Sprintf("Failed to create Wire1 linked list: %q", err)
-		return 0, wirell.WirePos{0, 0}, 0, wirell.WirePos{0, 0}, errors.New(errormsg)
+		return 0, wirell.WirePos{XPos: 0, YPos: 0}, 0, wirell.WirePos{XPos: 0, YPos: 0}, errors.New(errormsg)
 	}
 
 	ll2, err := wirell.CreateWireLL()
 	if err != nil {
 		errormsg := fmt.Sprintf("Failed to create Wire1 linked list: %q", err)
-		return 0, wirell.WirePos{0, 0}, 0, wirell.WirePos{0, 0}, errors.New(errormsg)
+		return 0, wirell.WirePos{XPos: 0, YPos: 0}, 0, wirell.WirePos{XPos: 0, YPos: 0}, errors.New(errormsg)
 	}
 
 	wires, err := filereader.ReadCSVStringsPerLine(inputFile)
 	if err != nil {
-		return 0, wirell.WirePos{0, 0}, 0, wirell.WirePos{0, 0}, err
+		return 0, wirell.WirePos{XPos: 0, YPos: 0}, 0, wirell.WirePos{XPos: 0, YPos: 0}, err
 	}
 
 	wire1 := wires[0]
@@ -60,13 +60,13 @@ func run(verbose bool) (int, wirell.WirePos, int, wirell.WirePos, error) {
 		move, err := wirell.ParseMove(wire1[i])
 		if err != nil {
 			errormsg := fmt.Sprintf("Invalid move %q @ line 1 field %v: %v\n", wire1[i], i, err)
-			return 0, wirell.WirePos{0, 0}, 0, wirell.WirePos{0, 0}, errors.New(errormsg)
+			return 0, wirell.WirePos{XPos: 0, YPos: 0}, 0, wirell.WirePos{XPos: 0, YPos: 0}, errors.New(errormsg)
 		}
 
 		err = wirell.AddMove(ll1, move)
 		if err != nil {
 			errormsg := fmt.Sprintf("Failed to make move %q @ line 1 field %v: %v\n", move, i, err)
-			return 0, wirell.WirePos{0, 0}, 0, wirell.WirePos{0, 0}, errors.New(errormsg)
+			return 0, wirell.WirePos{XPos: 0, YPos: 0}, 0, wirell.WirePos{XPos: 0, YPos: 0}, errors.New(errormsg)
 		}
 	}
 	if verbose {
@@ -77,12 +77,12 @@ func run(verbose bool) (int, wirell.WirePos, int, wirell.WirePos, error) {
 		move, err := wirell.ParseMove(wire2[i])
 		if err != nil {
 			errormsg := fmt.Sprintf("Invalid move %q @ line 2 field %v: %v\n", wire2[i], i, err)
-			return 0, wirell.WirePos{0, 0}, 0, wirell.WirePos{0, 0}, errors.New(errormsg)
+			return 0, wirell.WirePos{XPos: 0, YPos: 0}, 0, wirell.WirePos{XPos: 0, YPos: 0}, errors.New(errormsg)
 		}
 		err = wirell.AddMove(ll2, move)
 		if err != nil {
 			errormsg := fmt.Sprintf("Failed to make move %q @ line 2 field %v: %v\n", move, i, err)
-			return 0, wirell.WirePos{0, 0}, 0, wirell.WirePos{0, 0}, errors.New(errormsg)
+			return 0, wirell.WirePos{XPos: 0, YPos: 0}, 0, wirell.WirePos{XPos: 0, YPos: 0}, errors.New(errormsg)
 		}
 	}
 	if verbose {
@@ -98,9 +98,9 @@ func run(verbose bool) (int, wirell.WirePos, int, wirell.WirePos, error) {
 	}
 
 	minDistance := -1
-	minPoint := wirell.WirePos{-1, -1}
+	minPoint := wirell.WirePos{XPos: -1, YPos: -1}
 	minSteps := -1
-	minStepsPoint := wirell.WirePos{-1, -1}
+	minStepsPoint := wirell.WirePos{XPos: -1, YPos: -1}
 	for i := 0; i < len(intersections); i++ {
 		newDistance := 0
 
