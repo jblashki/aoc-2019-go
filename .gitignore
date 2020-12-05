@@ -15,5 +15,6 @@
 # vendor/
 
 *.swp
+.vscode/**
 
 aoc2019
