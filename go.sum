@@ -3,11 +3,13 @@ github.com/jblashki/aoc-filereader-go v1.1.0 h1:6hx0/OcGEwmWBoiF+qgl8dLrU02NxFv8
 github.com/jblashki/aoc-filereader-go v1.1.0/go.mod h1:pwn8ObLdl9SkixDnZZ0lBFfRlnx925zZxQmmgcW6aro=
 github.com/jblashki/aoc-intcode-go v1.1.0 h1:6dRiVMNIRaBMO3KEpR8YY2KxqcRS9DD7wGy7KBKb9pU=
 github.com/jblashki/aoc-intcode-go v1.1.0/go.mod h1:4lba/E1JKaHx+lOJgZ+B3D3mOmHQKk2rPw49ruUNQt0=
-github.com/jblashki/aoc-intcode-go/v2 v2.0.0-alpha.1 h1:I7OiHt+A5OmrspUI4c91ZwPbfMFgLfj1Fno9nL4mAXI=
-github.com/jblashki/aoc-intcode-go/v2 v2.0.0-alpha.1/go.mod h1:feYDuEeOrdflqaiuavdjEg8+Ea4L7qn1cOC2nXqgCfs=
 github.com/jblashki/aoc-intcode-go/v2 v2.0.0 h1:A3T1ROtc4FtS8z2OXoCVdsDckb4Nm10Zg2KcJwipiV8=
 github.com/jblashki/aoc-intcode-go/v2 v2.0.0/go.mod h1:feYDuEeOrdflqaiuavdjEg8+Ea4L7qn1cOC2nXqgCfs=
-github.com/jblashki/aoc-intcode-go/v3 v3.0.0-alpha.1 h1:/URIzdDPWBgnMtVCLZV8HtzwvnbyzWVi+LncIlB2CAg=
-github.com/jblashki/aoc-intcode-go/v3 v3.0.0-alpha.1/go.mod h1:Iw44277DsWhYLFYFfICWE6woi8Gmj66FwU/gtduYZpc=
+github.com/jblashki/aoc-intcode-go/v2 v2.0.1 h1:wrJJHnPy97gv1HLNXocGrPWqyjwNS+GZk4PVy4+EgHw=
+github.com/jblashki/aoc-intcode-go/v2 v2.0.1/go.mod h1:feYDuEeOrdflqaiuavdjEg8+Ea4L7qn1cOC2nXqgCfs=
 github.com/jblashki/aoc-intcode-go/v3 v3.0.0 h1:gOkrrVnXnCQNgKf8VYlwEbhhAT6DUYgY0ILOrcOVjcU=
 github.com/jblashki/aoc-intcode-go/v3 v3.0.0/go.mod h1:Iw44277DsWhYLFYFfICWE6woi8Gmj66FwU/gtduYZpc=
+github.com/jblashki/aoc-intcode-go/v3 v3.0.1 h1:rVD8lIO0LPqlPy9J1zLQ7A2iDPAxic4aFLYDSclscKw=
+github.com/jblashki/aoc-intcode-go/v3 v3.0.1/go.mod h1:Iw44277DsWhYLFYFfICWE6woi8Gmj66FwU/gtduYZpc=
+github.com/jblashki/aoc-intcode-go/v4 v4.0.0 h1:CZd+W5Sm/d5BLurPP/L56h88L7Oqi+nWx1J4FO7/sF8=
+github.com/jblashki/aoc-intcode-go/v4 v4.0.0/go.mod h1:OHAKQot50HdcmYpTH9LDfzWy9cfcLDC372xxdEcrpsM=
