@@ -273,7 +273,7 @@ func drawHullMap(hullMap [][]int, r robot) {
 				if hullMap[i][j] == 1 {
 					fmt.Printf("█")
 				} else {
-					fmt.Printf(".")
+					fmt.Printf(" ")
 				}
 			}
 		}
