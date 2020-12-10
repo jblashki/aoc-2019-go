@@ -13,3 +13,7 @@ github.com/jblashki/aoc-intcode-go/v3 v3.0.1 h1:rVD8lIO0LPqlPy9J1zLQ7A2iDPAxic4a
 github.com/jblashki/aoc-intcode-go/v3 v3.0.1/go.mod h1:Iw44277DsWhYLFYFfICWE6woi8Gmj66FwU/gtduYZpc=
 github.com/jblashki/aoc-intcode-go/v4 v4.0.0 h1:CZd+W5Sm/d5BLurPP/L56h88L7Oqi+nWx1J4FO7/sF8=
 github.com/jblashki/aoc-intcode-go/v4 v4.0.0/go.mod h1:OHAKQot50HdcmYpTH9LDfzWy9cfcLDC372xxdEcrpsM=
+github.com/pkg/term v1.1.0 h1:xIAAdCMh3QIAy+5FrE8Ad8XoDhEU4ufwbaSozViP9kk=
+github.com/pkg/term v1.1.0/go.mod h1:E25nymQcrSllhX42Ok8MRm1+hyBdHY0dCeiKZ9jpNGw=
+golang.org/x/sys v0.0.0-20200909081042-eff7692f9009 h1:W0lCpv29Hv0UaM1LXb9QlBHLNP8UFfcKjblhVCWftOM=
+golang.org/x/sys v0.0.0-20200909081042-eff7692f9009/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
